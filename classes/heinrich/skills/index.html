@@ -443,13 +443,17 @@
                         <td colspan="2" />
                     </tr>
                     <tr>
-                        <td class="column_name" rowspan="7">Description:</td>
-                        <td colspan="5" class="column_value">Deal 2500% + (Current Field HP / 50000)00% physical damage to a single enemy. During PVP, the x4 HP during PVP is not used</td>
+                        <td class="column_name" rowspan="10">Description:</td>
+                        <td colspan="5" class="column_value">Deal 2500% + (Current HP Factor)% physical damage to a single enemy. The Current HP Factor changes depending if it's PVE or PVP</td>
                     </tr>
                     
                     
                     <tr>
-                        <td colspan="5" class="column_value">Each 50000 of Heinrich's current HP adds 100 to the 2500% damage modifier. For example, if Heinrich has 800k current HP, the damage modifier becomes 2500+1600=4100%</td>
+                        <td colspan="5" class="column_value">In PVE, every 50,000 HP in Heinrich's current HP adds 100 to the 2500% damage modifier. For example, if Heinrich's current HP in PVE is 800,000 , then the HP factor is +1600, making the skill deal 2500%+1600%=4100%</td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="5" class="column_value">In PVP, due to the innate x4 HP mechanic, every 200,000 HP in Heinrich's current HP adds 100 to the 2500% damage modifier. For example, if Heinrich's current HP in PVP is 2,000,000 , then the HP factor is +1000, making the skill deal 2500%+1000%=3500%</td>
                     </tr>
                     
                     <tr>
@@ -461,11 +465,19 @@
                     </tr>
                     
                     <tr>
+                        <td colspan="5" class="column_value">When using lifesteal cards such as Kobold Leader or Pocarani, the lifesteal happens before Heinrich's HP is reduced to 1</td>
+                    </tr>
+                    
+                    <tr>
                         <td colspan="5" class="column_value">The arcane rune, Tai Chi, will not affect the reduce-HP-to-1 effect of this skill</td>
                     </tr>
                     
                     <tr>
                         <td colspan="5" class="column_value">If using the HP relic, Heinrich's current HP will be reduced to 50%, instead of being reduced to 1</td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="5" class="column_value">If the enemy has gears that grant physical reflect such as Deathcat Cape, GVG rental mouth, or has innate reflect like Clock, and the reflect has not been disabled by Dawn, then Heinrich will receive the reflected damage after his HP has been reduced to 1, guaranteeing to kill Heinrich unless he has anti-fatal</td>
                     </tr>
                     
                     <tr>
@@ -475,9 +487,15 @@
                     
                     
                     <tr>
-                        <td class="column_name" rowspan="1">Rune Effect:</td>
+                        <td class="column_name" rowspan="2">Rune Effect:</td>
                         <td colspan="5" class="column_value">If the targetted enemy player does not die from this skill, inflict non-dispellable HP Loss equivalent to 10%~~30% of their max HP after 1s</td>
                     </tr>
+                    
+                    
+                    <tr>
+                        <td colspan="5" class="column_value">This HP Loss effect from the rune can be further boosted by the arcane rune </td>
+                    </tr>
+                    
                     
                     
                 </tbody>
