@@ -1,0 +1,323 @@
+<html>
+    <head>
+        <style>
+            .computed {
+                color: #00568a;
+                font-weight: bold;
+            }
+
+            .main_content {
+                border-radius: 16px;
+                background-color: #94c4ec;
+                margin: auto;
+                padding: 16px;
+                width: 80%;
+            }
+
+            .rune_table {
+                background-color: #E6F2FF;
+                border: 1px solid #38719C;
+                border-collapse: "collapse";
+                width: 100%;
+            }
+
+            .image_icon {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                height: 50px;
+                width: 50px;
+            }
+
+            .column_name {
+                background-color: #D2EDFF;
+                color: #00568a;
+                font-family: Verdana, sans-serif;
+                font-size: 0.9em;
+                font-weight: bold;
+                text-align: center;
+                width: 20%;
+            }
+
+            .column_value {
+                background-color: #E6F2FF;
+                color: #00568a;
+                font-family: Verdana, sans-serif;
+                font-size: 0.9em;
+            }
+
+        </style>
+        <script lang="javascript">
+            function get_level() {
+                var raw_level = document.getElementById("arcane_rune_level").value;
+                
+                if(isNaN(raw_level) || isNaN(parseInt(raw_level))) {
+                    document.getElementById("arcane_rune_level").value = 1;
+                    return 1;
+                }
+                
+                var parsed_level = parseInt(raw_level);
+
+                if(parsed_level > 100) {
+                    document.getElementById("arcane_rune_level").value = 100;
+                    return 100;
+                } else if(parsed_level < 1) {
+                    document.getElementById("arcane_rune_level").value = 1;
+                    return 1;
+                } else {
+                    return parsed_level;
+                }
+            }
+
+            function compute_arcane_rune(level, tier1, tier2, tier3) {
+                var actual_level = Math.min(level, 100);
+                actual_level = Math.max(actual_level, 0);
+                var value = (actual_level * tier1) + (Math.max(actual_level - 30, 0) * tier2) + (Math.max(actual_level - 60, 0) * tier3);
+                value = value * 10000;
+                return Math.floor(value) / 100;
+            }
+
+            function update_arcane_runes() {
+                var level = get_level();
+                
+                var rune_summon = compute_arcane_rune(level, 0.001, 0.0005, 0.001);
+                var rune_ranged_dmg_inc = compute_arcane_rune(level, 0.002, 0.001, 0.002);
+                var rune_dmg_inc_after = compute_arcane_rune(level, 0.002, 0.001, 0.002);
+                var rune_hp_loss_when_attacked = compute_arcane_rune(level, 0.004, 0.002, 0.004);
+                var rune_melee_dmg_inc = compute_arcane_rune(level, 0.002, 0.001, 0.002);
+                var rune_mvspeed = compute_arcane_rune(level, 0.001, 0.0005, 0.001);
+                var rune_hp_loss_dmg_inc = compute_arcane_rune(level, 0.003, 0.002, 0.002);
+                var rune_status_atk_inc = compute_arcane_rune(level, 0.002, 0.001, 0.002);
+                var rune_remove_buff_on_status = compute_arcane_rune(level, 0.002, 0.001, 0.002);
+                var rune_hide_disarm = compute_arcane_rune(level, 0.004, 0.002, 0.004);
+                var rune_sp_recover = compute_arcane_rune(level, 0.10, 0.50, 0.10);
+                var rune_no_sp_use = compute_arcane_rune(level, 0.002, 0.001, 0.002);
+                var rune_delay_dmg = compute_arcane_rune(level, 0.002, 0.001, 0.002);
+                var rune_barrier_on_atk = compute_arcane_rune(level, 0.0004, 0.0002, 0.0004);
+                var rune_anti_dispell = compute_arcane_rune(level, 0.004, 0.002, 0.004);
+                var rune_half_life_less_dmg = compute_arcane_rune(level, 0.002, 0.001, 0.002);
+
+
+                document.getElementById("rune_summon_dmgincr").innerText = rune_summon.toString() + "%";
+                document.getElementById("rune_summon_dmgredu").innerText = rune_summon.toString() + "%";
+                document.getElementById("rune_ranged_dmg_inc").innerText = rune_ranged_dmg_inc.toString() + "%";
+                document.getElementById("rune_dmg_inc_after").innerText = rune_dmg_inc_after.toString() + "%";
+                document.getElementById("rune_hp_loss_when_attacked").innerText = rune_hp_loss_when_attacked.toString() + "%";
+                document.getElementById("rune_melee_dmg_inc").innerText = rune_melee_dmg_inc.toString() + "%";
+                document.getElementById("rune_mvspeed").innerText = rune_mvspeed.toString() + "%";
+                document.getElementById("rune_hp_loss_dmg_inc").innerText = rune_hp_loss_dmg_inc.toString() + "%";
+                document.getElementById("rune_status_atk_inc").innerText = rune_status_atk_inc.toString() + "%";
+                document.getElementById("rune_remove_buff_on_status").innerText = rune_remove_buff_on_status.toString() + "%";
+                document.getElementById("rune_hide_disarm").innerText = rune_hide_disarm.toString() + "%";
+                document.getElementById("rune_sp_recover").innerText = rune_sp_recover.toString() + "SP";
+                document.getElementById("rune_no_sp_use").innerText = rune_no_sp_use.toString() + "%";
+                document.getElementById("rune_delay_dmg").innerText = rune_delay_dmg.toString() + "%";
+                document.getElementById("rune_barrier_on_atk").innerText = rune_barrier_on_atk.toString() + "%";
+                document.getElementById("rune_anti_dispell").innerText = rune_anti_dispell.toString() + "%";
+                document.getElementById("rune_half_life_less_dmg").innerText = rune_half_life_less_dmg.toString() + "%";
+            }
+        </script>
+    </head>
+    <body onload="update_arcane_runes()">
+        <div class="main_content">
+            <table>
+                <tr>
+                   <td class="column_name" style="background-color: #94c4ec; text-align: right; width: 90%;">Arcane Rune Level:</td>
+                   <td><input autocomplete="off" type="number" id="arcane_rune_level" value="1" min="1" max="100" onchange="update_arcane_runes()"></input></td> 
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="aide.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Aide</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">Summons with HP bars deal +<span class="computed" id="rune_summon_dmgincr"></span> more final damage.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">Summons with HP bars receive -<span class="computed" id="rune_summon_dmgredu"></span> less final damage.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">Examples of summons with HP bars are Genetic's Homunculi, Light Bringer's Pioneer, Phantom Dancer's Shadows, and Yamata's shadow clones.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="transmission.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Transmission</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">Deal +<span class="computed" id="rune_ranged_dmg_inc"></span> more final physical or magical damage to targets at least 6 meters away.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="roaring.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Roaring</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">After not attacking for 3 seconds, whether active skill or proc, deal +<span class="computed" id="rune_dmg_inc_after"></span> more final damage on your next physical or magical attack.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="thorn.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Thorn</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">When receiving a physical or magical attack, <span class="computed" id="rune_hp_loss_when_attacked"></span> chance to inflict (PATK+MATK)x100% HP Loss on the attacker.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="white-blade.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">White Blade</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">If there is exactly only 1 enemy within a 5 meter radius, deal +<span class="computed" id="rune_melee_dmg_inc"></span> more final physical and magical damage only to that enemy.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="bloody.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Bloody</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">Increase the damage of HP Loss inflicted by +<span class="computed" id="rune_hp_loss_dmg_inc"></span>.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">This boosts all types of HP Loss from Chronomancer's Twisted Bomb, to Rathgricy's Flame of Pride, to Stellar Hunter's Star Arrows, to 6v6's Battle Instincts, to statuses such as Poison, Bleed, and Burn.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">Unfortunately, this also boosts the HP Loss received from own skills such as the HP Loss from Apocalypse's Universe Fusion.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">This does not boost the HP Loss received by Heinrich when he uses Fire Strike, and will not let Heinrich kill himself.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="tai-chi.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Tai Chi</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">When receiving physical or magical damage, <span class="computed" id="rune_delay_dmg"></span> of that damage gets delayed as HP Loss over 3 seconds.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">The HP Loss from the delayed damage can still kill you.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="galaxy.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Galaxy</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">When your buffs are being dispelled, <span class="computed" id="rune_anti_dispell"></span> for that buff dispell to fail.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="war-preparation.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">War Preparation</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">When dealing physical or magical damage, gain a non-stacking HP shield that lasts 2 seconds and its strength is based on <span class="computed" id="rune_barrier_on_atk"></span> of the damage dealt.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="immortality.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Immortality</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">While your HP is below 50% of your max HP, reduce physical and magical damage received by <span class="computed" id="rune_half_life_less_dmg"></span>.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="spirit.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Spirit</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">Recover <span class="computed" id="rune_sp_recover"></span> every 5 seconds.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6"><span class="computed" id="rune_no_sp_use"></span> chance to not use SP when using skills.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="disaster.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Disaster</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">+<span class="computed" id="rune_status_atk_inc"></span> status attack for all 12 statuses.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">When successfully inflicting any of the 12 statuses to an enemy, <span class="computed" id="rune_remove_buff_on_status"></span> to remove 1 buff from the said enemy</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="frenzy.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Frenzy</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">If your attack speed is at least 480%, gain +<span class="computed" id="rune_mvspeed"></span> more movespeed.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="cunning.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Cunning</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">When receiving a physical or magical attack whose damage is greater 15% of your max HP, <span class="computed" id="rune_hide_disarm"></span> to autocast Lv10 Hiding and disarm said attacker for 2 seconds.</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
