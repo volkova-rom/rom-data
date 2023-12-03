@@ -153,7 +153,7 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">Deal +<span class="computed" id="rune_ranged_dmg_inc"></span> more final physical or magical damage to targets at least 6 meters away.</td>
+                    <td class="column_value" colspan="6">Deal +<span class="computed" id="rune_ranged_dmg_inc"></span> more final physical or magical damage to targets at least 6.01 meters away.</td>
                 </tr>
             </table>
             <br />
@@ -165,7 +165,7 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">After not attacking for 3 seconds, whether active skill or proc, deal +<span class="computed" id="rune_dmg_inc_after"></span> more final damage on your next physical or magical attack.</td>
+                    <td class="column_value" colspan="6">After not attacking for 3 seconds, deal +<span class="computed" id="rune_dmg_inc_after"></span> more final damage on your next physical or magical attack.</td>
                 </tr>
             </table>
             <br />
@@ -239,6 +239,9 @@
                 <tr>
                     <td class="column_value" colspan="6">When your buffs are being dispelled, <span class="computed" id="rune_anti_dispell"></span> for that buff dispell to fail.</td>
                 </tr>
+                <tr>
+                    <td class="column_value" colspan="6">For buff dispells that remove all buffs, such as Chronomancer's Remove Buff or Thanatos' Nightmare, if the rune succeeds in blocking it, you will keep all your buffs.</td>
+                </tr>
             </table>
             <br />
             <table class="rune_table" border="1" cellpadding="3">
@@ -261,7 +264,10 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">While your HP is below 50% of your max HP, reduce physical and magical damage received by <span class="computed" id="rune_half_life_less_dmg"></span>.</td>
+                    <td class="column_value" colspan="6">While your HP is below 50% of your max HP, reduce physical and magical damage as well as specific HP Loss received by <span class="computed" id="rune_half_life_less_dmg"></span>.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">Some of the specific HP Loss that are reduced by this rune are CM's Twisted Bomb, and Stellar Hunter's Star Arrows</td>
                 </tr>
             </table>
             <br />
@@ -316,6 +322,9 @@
 
                 <tr>
                     <td class="column_value" colspan="6">When receiving a physical or magical attack whose damage is greater 15% of your max HP, <span class="computed" id="rune_hide_disarm"></span> to autocast Lv10 Hiding and disarm said attacker for 2 seconds.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">You must actually lose at least 15% of your max HP for this rune to trigger. If the damage gets blocked by mechanics such as HP Block relic, Rathgricy's Divine Wing Armor, etc, then this rune will not trigger</td>
                 </tr>
             </table>
         </div>
