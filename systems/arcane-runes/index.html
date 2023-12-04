@@ -151,54 +151,6 @@
             <br />
             <table class="rune_table" border="1" cellpadding="3">
                 <tr>
-                    <td class="column_name" rowspan="2"><img src="transmission.png" class="image_icon"></img></td>
-                    <td class="column_name" colspan="5" style="width: 80%;">Transmission</td>
-                </tr>
-                <tr></tr>
-
-                <tr>
-                    <td class="column_value" colspan="6">Deal +<span class="computed" id="rune_ranged_dmg_inc"></span> more final physical or magical damage to targets farther than 6.0 meters away.</td>
-                </tr>
-            </table>
-            <br />
-            <table class="rune_table" border="1" cellpadding="3">
-                <tr>
-                    <td class="column_name" rowspan="2"><img src="roaring.png" class="image_icon"></img></td>
-                    <td class="column_name" colspan="5" style="width: 80%;">Roaring</td>
-                </tr>
-                <tr></tr>
-
-                <tr>
-                    <td class="column_value" colspan="6">After not attacking for 3 seconds, deal +<span class="computed" id="rune_dmg_inc_after"></span> more final damage on your next physical or magical attack.</td>
-                </tr>
-            </table>
-            <br />
-            <table class="rune_table" border="1" cellpadding="3">
-                <tr>
-                    <td class="column_name" rowspan="2"><img src="thorn.png" class="image_icon"></img></td>
-                    <td class="column_name" colspan="5" style="width: 80%;">Thorn</td>
-                </tr>
-                <tr></tr>
-
-                <tr>
-                    <td class="column_value" colspan="6">When receiving physical or magical damage, <span class="computed" id="rune_hp_loss_when_attacked"></span> chance to inflict (PATK+MATK)x100% HP Loss on the attacker.</td>
-                </tr>
-            </table>
-            <br />
-            <table class="rune_table" border="1" cellpadding="3">
-                <tr>
-                    <td class="column_name" rowspan="2"><img src="white-blade.png" class="image_icon"></img></td>
-                    <td class="column_name" colspan="5" style="width: 80%;">White Blade</td>
-                </tr>
-                <tr></tr>
-
-                <tr>
-                    <td class="column_value" colspan="6">If there is exactly only 1 enemy within a 5 meter radius, deal +<span class="computed" id="rune_melee_dmg_inc"></span> more final physical or magical damage only to that enemy.</td>
-                </tr>
-            </table>
-            <br />
-            <table class="rune_table" border="1" cellpadding="3">
-                <tr>
                     <td class="column_name" rowspan="2"><img src="bloody.png" class="image_icon"></img></td>
                     <td class="column_name" colspan="5" style="width: 80%;">Bloody</td>
                 </tr>
@@ -232,16 +184,81 @@
             <br />
             <table class="rune_table" border="1" cellpadding="3">
                 <tr>
-                    <td class="column_name" rowspan="2"><img src="tai-chi.png" class="image_icon"></img></td>
-                    <td class="column_name" colspan="5" style="width: 80%;">Tai Chi</td>
+                    <td class="column_name" rowspan="2"><img src="roaring.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Roaring</td>
                 </tr>
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">When receiving physical or magical damage, <span class="computed" id="rune_delay_dmg"></span> of that damage gets delayed as non-dispellable HP Loss over 3 seconds.</td>
+                    <td class="column_value" colspan="6">After not attacking for 3 seconds, deal +<span class="computed" id="rune_dmg_inc_after"></span> more final damage on your next physical or magical attack.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="transmission.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Transmission</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">Deal +<span class="computed" id="rune_ranged_dmg_inc"></span> more final physical or magical damage to targets farther than 6.0 meters away.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="thorn.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Thorn</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">When receiving physical or magical damage, <span class="computed" id="rune_hp_loss_when_attacked"></span> chance to inflict (PATK+MATK)x100% HP Loss on the attacker.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="white-blade.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">White Blade</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">If there is exactly only 1 enemy within a 5 meter radius, deal +<span class="computed" id="rune_melee_dmg_inc"></span> more final physical or magical damage only to that enemy.</td>
+                </tr>
+            </table>
+            <br />
+            <hr />
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="cunning.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Cunning</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">When receiving a physical or magical damage that is higher than 15% of your max HP from a non-proc attack, <span class="computed" id="rune_hide_disarm"></span> to autocast Lv10 Hiding for yyourself and apply a 2s dispellable disarm on said attacker.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">The HP Loss from the delayed damage can still kill you.</td>
+                    <td class="column_value" colspan="6">You must actually lose at least 15% of your max HP for this rune to trigger. If the damage gets blocked by mechanics such as HP Block relic, Rathgricy's Divine Wing Armor feather mechanic, etc, then this rune will not trigger.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="disaster.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Disaster</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">+<span class="computed" id="rune_status_atk_inc"></span> status attack for all 12 statuses.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">When successfully inflicting any of the 12 statuses to an enemy, <span class="computed" id="rune_remove_buff_on_status"></span> to dispell 1 buff from said enemy.</td>
                 </tr>
             </table>
             <br />
@@ -257,21 +274,6 @@
                 </tr>
                 <tr>
                     <td class="column_value" colspan="6">For buff dispells that remove all buffs, such as Chronomancer's Remove Buff or Thanatos' Nightmare, if the rune succeeds in blocking it, you will keep all your buffs.</td>
-                </tr>
-            </table>
-            <br />
-            <table class="rune_table" border="1" cellpadding="3">
-                <tr>
-                    <td class="column_name" rowspan="2"><img src="war-preparation.png" class="image_icon"></img></td>
-                    <td class="column_name" colspan="5" style="width: 80%;">War Preparation</td>
-                </tr>
-                <tr></tr>
-
-                <tr>
-                    <td class="column_value" colspan="6">When dealing physical or magical damage with auto attack or an active skill, gain a non-stacking HP shield that lasts 2 seconds and its strength is based on <span class="computed" id="rune_barrier_on_atk"></span> of the damage dealt.</td>
-                </tr>
-                <tr>
-                    <td class="column_value" colspan="6">The shield gained cannot be greater than your max HP.</td>
                 </tr>
             </table>
             <br />
@@ -307,31 +309,31 @@
             <br />
             <table class="rune_table" border="1" cellpadding="3">
                 <tr>
-                    <td class="column_name" rowspan="2"><img src="disaster.png" class="image_icon"></img></td>
-                    <td class="column_name" colspan="5" style="width: 80%;">Disaster</td>
+                    <td class="column_name" rowspan="2"><img src="tai-chi.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Tai Chi</td>
                 </tr>
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">+<span class="computed" id="rune_status_atk_inc"></span> status attack for all 12 statuses.</td>
+                    <td class="column_value" colspan="6">When receiving physical or magical damage, <span class="computed" id="rune_delay_dmg"></span> of that damage gets delayed as non-dispellable HP Loss over 3 seconds.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">When successfully inflicting any of the 12 statuses to an enemy, <span class="computed" id="rune_remove_buff_on_status"></span> to dispell 1 buff from said enemy.</td>
+                    <td class="column_value" colspan="6">The HP Loss from the delayed damage can still kill you.</td>
                 </tr>
             </table>
             <br />
             <table class="rune_table" border="1" cellpadding="3">
                 <tr>
-                    <td class="column_name" rowspan="2"><img src="cunning.png" class="image_icon"></img></td>
-                    <td class="column_name" colspan="5" style="width: 80%;">Cunning</td>
+                    <td class="column_name" rowspan="2"><img src="war-preparation.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">War Preparation</td>
                 </tr>
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">When receiving a physical or magical damage that is higher than 15% of your max HP from a non-proc attack, <span class="computed" id="rune_hide_disarm"></span> to autocast Lv10 Hiding for yyourself and apply a 2s dispellable disarm on said attacker.</td>
+                    <td class="column_value" colspan="6">When dealing physical or magical damage with auto attack or an active skill, gain a non-stacking HP shield that lasts 2 seconds and its strength is based on <span class="computed" id="rune_barrier_on_atk"></span> of the damage dealt.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">You must actually lose at least 15% of your max HP for this rune to trigger. If the damage gets blocked by mechanics such as HP Block relic, Rathgricy's Divine Wing Armor feather mechanic, etc, then this rune will not trigger.</td>
+                    <td class="column_value" colspan="6">The shield gained cannot be greater than your max HP.</td>
                 </tr>
             </table>
         </div>
