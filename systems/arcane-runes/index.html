@@ -74,28 +74,28 @@
                 actual_level = Math.max(actual_level, 0);
                 var value = (actual_level * tier1) + (Math.max(actual_level - 30, 0) * tier2) + (Math.max(actual_level - 60, 0) * tier3);
                 value = value * 10000;
-                return Math.floor(value) / 100;
+                return Math.floor(value) / 10000;
             }
 
             function update_arcane_runes() {
                 var level = get_level();
                 
-                var rune_summon = compute_arcane_rune(level, 0.001, 0.0005, 0.001);
-                var rune_ranged_dmg_inc = compute_arcane_rune(level, 0.002, 0.001, 0.002);
-                var rune_dmg_inc_after = compute_arcane_rune(level, 0.002, 0.001, 0.002);
-                var rune_hp_loss_when_attacked = compute_arcane_rune(level, 0.004, 0.002, 0.004);
-                var rune_melee_dmg_inc = compute_arcane_rune(level, 0.002, 0.001, 0.002);
-                var rune_mvspeed = compute_arcane_rune(level, 0.001, 0.0005, 0.001);
-                var rune_hp_loss_dmg_inc = compute_arcane_rune(level, 0.003, 0.002, 0.002);
-                var rune_status_atk_inc = compute_arcane_rune(level, 0.002, 0.001, 0.002);
-                var rune_remove_buff_on_status = compute_arcane_rune(level, 0.002, 0.001, 0.002);
-                var rune_hide_disarm = compute_arcane_rune(level, 0.004, 0.002, 0.004);
-                var rune_sp_recover = compute_arcane_rune(level, 0.10, 0.50, 0.10);
-                var rune_no_sp_use = compute_arcane_rune(level, 0.002, 0.001, 0.002);
-                var rune_delay_dmg = compute_arcane_rune(level, 0.002, 0.001, 0.002);
-                var rune_barrier_on_atk = compute_arcane_rune(level, 0.0004, 0.0002, 0.0004);
-                var rune_anti_dispell = compute_arcane_rune(level, 0.004, 0.002, 0.004);
-                var rune_half_life_less_dmg = compute_arcane_rune(level, 0.002, 0.001, 0.002);
+                var rune_summon = compute_arcane_rune(level, 0.1, 0.05, 0.1);
+                var rune_ranged_dmg_inc = compute_arcane_rune(level, 0.2, 0.1, 0.2);
+                var rune_dmg_inc_after = compute_arcane_rune(level, 0.2, 0.1, 0.2);
+                var rune_hp_loss_when_attacked = compute_arcane_rune(level, 0.4, 0.2, 0.4);
+                var rune_melee_dmg_inc = compute_arcane_rune(level, 0.2, 0.1, 0.2);
+                var rune_mvspeed = compute_arcane_rune(level, 0.1, 0.05, 0.1);
+                var rune_hp_loss_dmg_inc = compute_arcane_rune(level, 0.3, 0.2, 0.2);
+                var rune_status_atk_inc = compute_arcane_rune(level, 0.2, 0.1, 0.2);
+                var rune_remove_buff_on_status = compute_arcane_rune(level, 0.2, 0.1, 0.2);
+                var rune_hide_disarm = compute_arcane_rune(level, 0.3, 0.2, 0.2);
+                var rune_sp_recover = compute_arcane_rune(level, 10, 5, 10);
+                var rune_no_sp_use = compute_arcane_rune(level, 0.2, 0.1, 0.2);
+                var rune_delay_dmg = compute_arcane_rune(level, 0.2, 0.1, 0.2);
+                var rune_barrier_on_atk = compute_arcane_rune(level, 0.04, 0.02, 0.04);
+                var rune_anti_dispell = compute_arcane_rune(level, 0.3, 0.2, 0.2);
+                var rune_half_life_less_dmg = compute_arcane_rune(level, 0.2, 0.1, 0.2);
 
 
                 document.getElementById("rune_summon_dmgincr").innerText = rune_summon.toString() + "%";
@@ -253,6 +253,9 @@
 
                 <tr>
                     <td class="column_value" colspan="6">When dealing physical or magical damage, gain a non-stacking HP shield that lasts 2 seconds and its strength is based on <span class="computed" id="rune_barrier_on_atk"></span> of the damage dealt.</td>
+                </tr>
+                <tr>
+                    <td class="column_value" colspan="6">The shield gained cannot be greater than your max HP</td>
                 </tr>
             </table>
             <br />
