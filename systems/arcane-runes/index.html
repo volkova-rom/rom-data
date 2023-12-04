@@ -1,6 +1,10 @@
 <html>
     <head>
         <style>
+            body {
+               background-color: #000060;
+            }
+
             .computed {
                 color: #00568a;
                 font-weight: bold;
@@ -135,10 +139,10 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">Summons with HP bars deal +<span class="computed" id="rune_summon_dmgincr"></span> more final damage.</td>
+                    <td class="column_value" colspan="6">Summons with HP bars deal +<span class="computed" id="rune_summon_dmgincr"></span> more final physical or magical damage.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">Summons with HP bars receive -<span class="computed" id="rune_summon_dmgredu"></span> less final damage.</td>
+                    <td class="column_value" colspan="6">Summons with HP bars receive -<span class="computed" id="rune_summon_dmgredu"></span> less final physical or magical damage.</td>
                 </tr>
                 <tr>
                     <td class="column_value" colspan="6">Examples of summons with HP bars are Genetic's Homunculi, Light Bringer's Pioneer, Phantom Dancer's Shadows, and Yamata's shadow clones.</td>
@@ -153,7 +157,7 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">Deal +<span class="computed" id="rune_ranged_dmg_inc"></span> more final physical or magical damage to targets at least 6.01 meters away.</td>
+                    <td class="column_value" colspan="6">Deal +<span class="computed" id="rune_ranged_dmg_inc"></span> more final physical or magical damage to targets farther than 6.0 meters away.</td>
                 </tr>
             </table>
             <br />
@@ -177,7 +181,7 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">When receiving a physical or magical attack, <span class="computed" id="rune_hp_loss_when_attacked"></span> chance to inflict (PATK+MATK)x100% HP Loss on the attacker.</td>
+                    <td class="column_value" colspan="6">When receiving physical or magical damage, <span class="computed" id="rune_hp_loss_when_attacked"></span> chance to inflict (PATK+MATK)x100% HP Loss on the attacker.</td>
                 </tr>
             </table>
             <br />
@@ -189,7 +193,7 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">If there is exactly only 1 enemy within a 5 meter radius, deal +<span class="computed" id="rune_melee_dmg_inc"></span> more final physical and magical damage only to that enemy.</td>
+                    <td class="column_value" colspan="6">If there is exactly only 1 enemy within a 5 meter radius, deal +<span class="computed" id="rune_melee_dmg_inc"></span> more final physical or magical damage only to that enemy.</td>
                 </tr>
             </table>
             <br />
@@ -204,13 +208,25 @@
                     <td class="column_value" colspan="6">Increase the damage of HP Loss inflicted by +<span class="computed" id="rune_hp_loss_dmg_inc"></span>.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">This boosts all types of HP Loss from Chronomancer's Twisted Bomb, to Rathgricy's Flame of Pride, to Stellar Hunter's Star Arrows, to 6v6's Battle Instincts, to statuses such as Poison, Bleed, and Burn.</td>
+                    <td class="column_value" colspan="6">This boosts all types of HP Loss from skills such as Chronomancer's Twisted Bomb, Rathgricy's Flame of Pride, Stellar Hunter's Star Arrows, 6v6's Battle Instincts, Taekwon's self-inflicted HP Loss from Universe Fusion, etc.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">Unfortunately, this also boosts the HP Loss received from own skills such as the HP Loss from Apocalypse's Universe Fusion.</td>
+                    <td class="column_value" colspan="6">This also boosts HP Loss from statuses such as Poison, Burn, Bleed, etc.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">This does not boost the HP Loss received by Heinrich when he uses Fire Strike, and will not let Heinrich kill himself.</td>
+                    <td class="column_value" colspan="6">This does not boost the heal that Hela receives when Bloodlines is up.</td>
+                </tr>
+            </table>
+            <br />
+            <table class="rune_table" border="1" cellpadding="3">
+                <tr>
+                    <td class="column_name" rowspan="2"><img src="frenzy.png" class="image_icon"></img></td>
+                    <td class="column_name" colspan="5" style="width: 80%;">Frenzy</td>
+                </tr>
+                <tr></tr>
+
+                <tr>
+                    <td class="column_value" colspan="6">If your attack speed is at least 480%, gain +<span class="computed" id="rune_mvspeed"></span> more movespeed.</td>
                 </tr>
             </table>
             <br />
@@ -222,7 +238,7 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">When receiving physical or magical damage, <span class="computed" id="rune_delay_dmg"></span> of that damage gets delayed as HP Loss over 3 seconds.</td>
+                    <td class="column_value" colspan="6">When receiving physical or magical damage, <span class="computed" id="rune_delay_dmg"></span> of that damage gets delayed as non-dispellable HP Loss over 3 seconds.</td>
                 </tr>
                 <tr>
                     <td class="column_value" colspan="6">The HP Loss from the delayed damage can still kill you.</td>
@@ -252,10 +268,10 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">When dealing physical or magical damage, gain a non-stacking HP shield that lasts 2 seconds and its strength is based on <span class="computed" id="rune_barrier_on_atk"></span> of the damage dealt.</td>
+                    <td class="column_value" colspan="6">When dealing physical or magical damage with auto attack or an active skill, gain a non-stacking HP shield that lasts 2 seconds and its strength is based on <span class="computed" id="rune_barrier_on_atk"></span> of the damage dealt.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">The shield gained cannot be greater than your max HP</td>
+                    <td class="column_value" colspan="6">The shield gained cannot be greater than your max HP.</td>
                 </tr>
             </table>
             <br />
@@ -267,10 +283,10 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">While your HP is below 50% of your max HP, reduce physical and magical damage as well as specific HP Loss received by <span class="computed" id="rune_half_life_less_dmg"></span>.</td>
+                    <td class="column_value" colspan="6">While your HP is below 50% of your max HP, reduce physical and magical damage received as well as HP Loss received from specific skills by <span class="computed" id="rune_half_life_less_dmg"></span>.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">Some of the specific HP Loss that are reduced by this rune are CM's Twisted Bomb, and Stellar Hunter's Star Arrows</td>
+                    <td class="column_value" colspan="6">Some of the skills whose HP Loss can be reduced by this rune are Chronomancer's Twisted Bomb, and Stellar Hunter's Star Arrows.</td>
                 </tr>
             </table>
             <br />
@@ -300,19 +316,7 @@
                     <td class="column_value" colspan="6">+<span class="computed" id="rune_status_atk_inc"></span> status attack for all 12 statuses.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">When successfully inflicting any of the 12 statuses to an enemy, <span class="computed" id="rune_remove_buff_on_status"></span> to remove 1 buff from the said enemy</td>
-                </tr>
-            </table>
-            <br />
-            <table class="rune_table" border="1" cellpadding="3">
-                <tr>
-                    <td class="column_name" rowspan="2"><img src="frenzy.png" class="image_icon"></img></td>
-                    <td class="column_name" colspan="5" style="width: 80%;">Frenzy</td>
-                </tr>
-                <tr></tr>
-
-                <tr>
-                    <td class="column_value" colspan="6">If your attack speed is at least 480%, gain +<span class="computed" id="rune_mvspeed"></span> more movespeed.</td>
+                    <td class="column_value" colspan="6">When successfully inflicting any of the 12 statuses to an enemy, <span class="computed" id="rune_remove_buff_on_status"></span> to dispell 1 buff from said enemy.</td>
                 </tr>
             </table>
             <br />
@@ -324,10 +328,10 @@
                 <tr></tr>
 
                 <tr>
-                    <td class="column_value" colspan="6">When receiving a physical or magical attack whose damage is greater 15% of your max HP, <span class="computed" id="rune_hide_disarm"></span> to autocast Lv10 Hiding and disarm said attacker for 2 seconds.</td>
+                    <td class="column_value" colspan="6">When receiving a physical or magical damage that is higher than 15% of your max HP from a non-proc attack, <span class="computed" id="rune_hide_disarm"></span> to autocast Lv10 Hiding for yyourself and apply a 2s dispellable disarm on said attacker.</td>
                 </tr>
                 <tr>
-                    <td class="column_value" colspan="6">You must actually lose at least 15% of your max HP for this rune to trigger. If the damage gets blocked by mechanics such as HP Block relic, Rathgricy's Divine Wing Armor, etc, then this rune will not trigger</td>
+                    <td class="column_value" colspan="6">You must actually lose at least 15% of your max HP for this rune to trigger. If the damage gets blocked by mechanics such as HP Block relic, Rathgricy's Divine Wing Armor feather mechanic, etc, then this rune will not trigger.</td>
                 </tr>
             </table>
         </div>
